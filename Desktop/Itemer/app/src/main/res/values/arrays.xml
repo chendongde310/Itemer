@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="items_type">
+        <item name="头盔">头盔</item>
+        <item name="护肩">护肩</item>
+        <item name="项链">项链</item>
+        <item name="胸甲">胸甲</item>
+        <item name="腰带">腰带</item>
+        <item name="裤子">裤子</item>
+        <item name="护腿">护腿</item>
+        <item name="鞋子">鞋子</item>
+        <item name="手套">手套</item>
+        <item name="戒指">戒指</item>
+        <item name="主武器">主武器</item>
+        <item name="副武器">副武器</item>
+    </string-array>
+
+    <string-array name="items_rank">
+        <item name="普通物品">普通物品</item>
+        <item name="魔法物品">魔法物品</item>
+        <item name="稀有物品">稀有物品</item>
+        <item name="传奇物品">传奇物品</item>
+
+    </string-array>
+    <string-array name="items_attribute">
+        <item >力量</item>
+        <item >敏捷</item>
+        <item >智力</item>
+        <item >基础伤害</item>
+        <item >每秒攻击次数%</item>
+        <item >冷却减缩%</item>
+        <item >物理伤害加成%</item>
+        <item >法术伤害加成%</item>
+        <item >寒冰伤害加成%</item>
+        <item >火焰伤害加成%</item>
+        <item >闪电伤害加成%</item>
+        <item >自然伤害加成%</item>
+        <item >死亡伤害加成%</item>
+        <item >神圣伤害加成%</item>
+        <item >暗影伤害加成%</item>
+        <item >毒性伤害加成%</item>
+        <item >物理暴击几率%</item>
+        <item >物理暴击伤害%</item>
+        <item >法术暴击几率%</item>
+        <item >法术暴击伤害%</item>
+        <item >物理穿透%</item>
+        <item >法术穿透%</item>
+        <item >护甲</item>
+        <item >魔法抗性</item>
+        <item >闪避几率%</item>
+        <item >格挡几率%</item>
+        <item >伤害减免%</item>
+        <item >生命值</item>
+        <item >体能</item>
+        <item >生命回复</item>
+        <item >物理吸血%</item>
+        <item >法术吸血%</item>
+        <item >魔法值</item>
+        <item >魔能</item>
+        <item >魔法回复</item>
+        <item >魔法消耗减缩%</item>
+        <item >移动速度%</item>
+        <item >金币获取量%</item>
+        <item >魔宝寻获率%</item>
+        <item >经验加成%</item>
+    </string-array>
+
+
+</resources>
