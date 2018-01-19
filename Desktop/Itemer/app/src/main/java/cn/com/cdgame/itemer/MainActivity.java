@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private android.widget.EditText name;
     private android.widget.TextView type;
     private TextView rank;
-    private EditText lv;
+
     private android.widget.AutoCompleteTextView describe;
     private android.support.v7.widget.RecyclerView attributes;
     private Intent intent;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         intent = getIntent();
         this.attributes = (RecyclerView) findViewById(R.id.attributes);
         this.describe = (AutoCompleteTextView) findViewById(R.id.describe);
-        this.lv = (EditText) findViewById(R.id.lv);
+
         this.rank = (TextView) findViewById(R.id.rank);
         this.type = (TextView) findViewById(R.id.type);
         this.name = (EditText) findViewById(R.id.name);
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             data = (Item) intent.getSerializableExtra("data");
             name.setText(data.getName());
             describe.setText(data.getDescribe());
-            lv.setText(data.getLv());
             rank.setText(data.getRank());
             type.setText(data.getType());
             name.setText(data.getName());
@@ -91,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
             adapter.addData(data.getAttributes());
         }
         View view = View.inflate(this, R.layout.add_item, null);
-        view.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (adapter.getItemCount() < 10) {
-                    adapter.addData(new Attribute("",""));
+                    adapter.addData(new Item.Attributes("",0));
                 }
             }
         });
@@ -122,15 +121,13 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 data.setName(name.getText().toString());
-                data.setLv(TextUtils.isEmpty(lv.getText()) ? "" : lv.getText().toString());
-                data.setDescribe(TextUtils.isEmpty(describe.getText()) ? "" : describe.getText().toString());
+                data.setDescribe(TextUtils.isEmpty(describe.getText()) ? "—— 由全城最\"棒\"的铁匠塞弗打造" : describe.getText().toString());
                 data.setSize(adapter.getItemCount());
                 data.setAttributes(adapter.getData());
                 intent.putExtra("data", data);
                 setResult(position, intent);
                 finish();
                 break;
-
             default:
                 break;
         }

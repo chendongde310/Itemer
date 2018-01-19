@@ -7,15 +7,13 @@ import java.io.Serializable
  * 日期：2018/1/15 - 上午10:41
  * 注释：
  */
-class Item : Serializable{
+class Item : Serializable {
     var name = "未命名"
-    var type = ""
-    var lv = ""
-    var rank = ""
+    var type = "0"
+    var rank = "0"
     var describe = ""
-    var attributes = ArrayList<Attribute>()
-    var size = 0
-    var affix = 0
+    var attributes = ArrayList<Attributes>() //必带属性
+    var size = 0 //随机魔法属性数量
 
     //-------------
     private var index = 0
@@ -27,21 +25,19 @@ class Item : Serializable{
      */
 
 
-    fun setAttributes(datas:List<Attribute>) {
+    fun setAttributes(datas: List<Attributes>) {
         attributes.clear()
         attributes.addAll(datas)
+    }
+
+    class Attributes(mAttributes: String, mId: Int) : Serializable {
+        var mId = mId
+        var attributes = mAttributes
     }
 
 
 }
 
-/**
- * 0是随机属性／随机值
- */
-class Attribute(mKey: String, mValue: String) : Serializable{
-    var  key = mKey
-    var value = mValue
-}
 
 
 

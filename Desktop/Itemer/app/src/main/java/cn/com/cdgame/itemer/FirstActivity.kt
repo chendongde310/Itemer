@@ -4,13 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import cn.com.cdgame.itemer.adapter.ItemAdapter
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_first.*
+
+
 
 class FirstActivity : AppCompatActivity() {
 
@@ -64,20 +63,22 @@ class FirstActivity : AppCompatActivity() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-
-        menuInflater.inflate(R.menu.frist, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when (item.itemId) {
-            R.id.code -> {
-                Toast.makeText(this, "老子还没做这个功能", Toast.LENGTH_SHORT).show()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//
+//        menuInflater.inflate(R.menu.frist, menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//
+//        when (item.itemId) {
+//            R.id.code -> {
+//                Toast.makeText(this, "已经复制到剪切板", Toast.LENGTH_SHORT).show()
+//                val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+//                cm.setText(utils.code(Hawk.get<List<Item>>("DATAS")))
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
 }

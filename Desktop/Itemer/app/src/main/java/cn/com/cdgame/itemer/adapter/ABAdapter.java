@@ -1,28 +1,24 @@
 package cn.com.cdgame.itemer.adapter;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
-import cn.com.cdgame.itemer.Attribute;
+import cn.com.cdgame.itemer.Item;
 import cn.com.cdgame.itemer.R;
 
 /**
  * 作者：陈东
  * 日期：2018/1/15 - 下午3:53
- * 注释：
+ * 注释：属性
  */
-public class ABAdapter extends BaseQuickAdapter<Attribute,BaseViewHolder> {
+public class ABAdapter extends BaseQuickAdapter<Item.Attributes, BaseViewHolder> {
 
-    int KEY = R.id.key;
-    int VALUE = R.id.value;
+    int KEY = R.id.attribute;
     int DELETE = R.id.delete;
-
 
 
     public ABAdapter() {
@@ -31,7 +27,10 @@ public class ABAdapter extends BaseQuickAdapter<Attribute,BaseViewHolder> {
 
 
     @Override
-    protected void convert(final BaseViewHolder helper, final Attribute item) {
+    protected void convert(final BaseViewHolder helper, final Item.Attributes attribute) {
+        if (!TextUtils.isEmpty(attribute.getAttributes()))
+            helper.setText(KEY, attribute.getAttributes());
+
         helper.setOnClickListener(KEY, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,8 +40,9 @@ public class ABAdapter extends BaseQuickAdapter<Attribute,BaseViewHolder> {
                         .itemsCallback(new MaterialDialog.ListCallback() {
                             @Override
                             public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                helper.setText(KEY,text);
-                                item.setKey(text.toString());
+                                helper.setText(KEY, text);
+                                attribute.setAttributes(text.toString());
+                                attribute.setMId(which);
                             }
                         })
                         .show();
@@ -54,24 +54,6 @@ public class ABAdapter extends BaseQuickAdapter<Attribute,BaseViewHolder> {
                 remove(helper.getAdapterPosition());
             }
         });
-
-        ((EditText)(helper.getView(VALUE))).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                item.setValue(charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
 
     }
 }
